@@ -1,13 +1,14 @@
-## Kaptive adaptive databases for Vibrio parahaemolyticus O/K antigen serotyping
+## README
 
-这里是副溶血弧菌O/K抗原基因的Kaptive数据库，fork自[vibrio_parahaemolyticus_genomoserotyping](https://github.com/aldertzomer/vibrio_parahaemolyticus_genomoserotyping)。
+vpa-serodb: Kaptive adaptive **d**ata**b**ses for **V**ibrio **pa**rahaemolyticus O/K antigen **sero**typing
+
+这是用于分子血清预测(in-silico serotyping)副溶血弧菌O/K抗原的Kaptive数据库，fork自[vibrio_parahaemolyticus_genomoserotyping](https://github.com/aldertzomer/vibrio_parahaemolyticus_genomoserotyping)。
 
 ### 与原数据库差异
 
 1. 新增了地方流行株O10:K4的数据（原数据库会将其鉴定为O4:K4）。
-2. 去除了与 GB 4789.7-2013 未包含但是文章中提出的O抗原：O14-O16，将其重新定义成OLU系列的抗原基因簇。
-3. 将OL3和OL13区分，只有当K基因簇为KL65时才定义成OL13:KL65
-
+2. 去除了与 GB 4789.7-2013 未包含但是[文章](https://doi.org/10.1016/j.ijfoodmicro.2017.01.010)中提出的O抗原：O14-O16，将其重新定义成OLU系列的抗原基因簇。
+3. 将OL3和OL13区分，默认情况下均鉴定为OL3。当K基因簇为KL65时会被鉴定成OL13:KL65。
 
 ### 定义说明：
 
@@ -35,7 +36,7 @@ $ conda activate kaptive
 (kaptive)$ conda install pip
 # 目前最新的3.0.6b版本的kaptive对基因数量判别有bugs,需要用仓库的最新代码安装
 (kaptive)$ pip install git+https://github.com/klebgenomics/Kaptive.git
-(kaptive)$ git clone https://github.com/indexofire/vibrio_parahaemolyticus_genomoserotyping.git
+(kaptive)$ git clone https://github.com/indexofire/vpa-serodb.git
 # 预测O抗原
 (kaptive)$ kaptive assembly Vpa_adaptive_db_O.gbk *.fasta -o output
 ```
